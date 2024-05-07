@@ -149,7 +149,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryViewHolder>
         check = image.equals("null");
         holder.image_entry.setVisibility(View.VISIBLE);
         holder.image_entry_loading.setVisibility(View.VISIBLE);
-        if (!check) // Similar to GlideImageLibraryExample
+        if (!check)
         {
             Glide.with(mainActivity).load(s.getImage()).addListener(new RequestListener<Drawable>()
                     {

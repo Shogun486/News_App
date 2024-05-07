@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity
 
         if (savedInstanceState == null)
         {
-            // Similar to DrawerLayout2 example -- basic iteration of drawer text
+            // basic iteration of drawer text
             items = new String[10];
 
             // Without initialization, app will crash upon startup
@@ -120,7 +120,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    // Functions similar to DrawerLayout2 example
     @Override
     protected void onPostCreate(Bundle savedInstanceState)
     {
@@ -167,7 +166,6 @@ public class MainActivity extends AppCompatActivity
         }
         else
         {
-            // Similar to GeographyDrawerLayout
             setTitle(item.getTitle());
 
             ArrayList <Media> ml_temp = almc.get(item.getTitle().toString());
@@ -189,7 +187,7 @@ public class MainActivity extends AppCompatActivity
             // New data set received, so update views
             updateData(newList);
 
-            // Redundant code to ensure toggle/drawer functionality
+            // Ensure toggle/drawer functionality
             binding.mainLeftDrawer.setOnItemClickListener(
                     (parent, view, position, id) -> selectItem(position)
             );
@@ -225,12 +223,10 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    // Similar to GeographyDrawerLayout example
     public void updateData(ArrayList <Media> toUpdate)
     {
         int numItems = toUpdate.size();
 
-        // Similar to SecondGeographyDrawerLayout example
         for (Media m : toUpdate)
         {
             String category = m.getCategory();
@@ -340,7 +336,6 @@ public class MainActivity extends AppCompatActivity
 
 
 
-    // Similar to onClickListener() for drawers (from DrawerLayout2 example)
     private void selectItem(int position)
     {
         da.notifyDataSetChanged();
