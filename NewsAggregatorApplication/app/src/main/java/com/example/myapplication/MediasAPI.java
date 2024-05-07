@@ -59,7 +59,8 @@ public class MediasAPI
                         category = jsonObjectSources.getString("category");
                         id = jsonObjectSources.getString("id");
                         name = jsonObjectSources.getString("name");
-                        m = new Media(category, id, name);
+                        String toShow = String.valueOf(category.charAt(0)).toUpperCase() + category.substring(1, category.length());
+                        m = new Media(toShow, id, name);
                         alm.add(m);
                         i++;
                     }

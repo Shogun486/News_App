@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,39 +56,39 @@ public class DrawerAdapter extends ArrayAdapter<String>
         // This is where the color-coding actually occurs
         if ((categories != null) && (items[pos] != null))
         {
-            if ((categories[pos].equals("business")))
+            if ((categories[pos].equals("Business")))
             {
                 textView.setTextColor(Color.GREEN);
                 textView.setText(items[pos]);
             }
-            if ((categories[pos].equals("entertainment")))
+            if ((categories[pos].equals("Entertainment")))
             {
-                textView.setTextColor(Color.RED);
+                textView.setTextColor(Color.rgb(250, 113, 7));
                 textView.setText(items[pos]);
             }
-            if ((categories[pos].equals("general")))
+            if ((categories[pos].equals("General")))
             {
-                textView.setTextColor(Color.LTGRAY);
+                textView.setTextColor(Color.WHITE);
                 textView.setText(items[pos]);
             }
-            if ((categories[pos].equals("health")))
+            if ((categories[pos].equals("Health")))
             {
-                textView.setTextColor(Color.BLACK);
+                textView.setTextColor(Color.rgb(250, 5, 5));
                 textView.setText(items[pos]);
             }
-            if ((categories[pos].equals("science")))
+            if ((categories[pos].equals("Science")))
             {
                 textView.setTextColor(Color.CYAN);
                 textView.setText(items[pos]);
             }
-            if ((categories[pos].equals("sports")))
+            if ((categories[pos].equals("Sports")))
             {
                 textView.setTextColor(Color.MAGENTA);
                 textView.setText(items[pos]);
             }
-            if ((categories[pos].equals("technology")))
+            if ((categories[pos].equals("Technology")))
             {
-                textView.setTextColor(Color.BLUE);
+                textView.setTextColor(Color.rgb(98, 168, 252));
                 textView.setText(items[pos]);
             }
         }

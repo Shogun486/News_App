@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class MainActivity extends AppCompatActivity
 {
 
-    private final String TAG = "MainActivity", appTitle = "News Gateway";
+    private final String TAG = "MainActivity", appTitle = "News App";
     private String [] items, categories;
     private String mediaName, format, show = "";
     private static final HashMap<String, ArrayList<Media>> almc = new HashMap<>(); // Media categories
@@ -159,6 +159,7 @@ public class MainActivity extends AppCompatActivity
         menu.clear();
         alm.clear();
         almn.clear();
+
         if (item.getTitle().toString().equals("All"))
         {
             almc.clear();
@@ -168,7 +169,10 @@ public class MainActivity extends AppCompatActivity
         {
             // Similar to GeographyDrawerLayout
             setTitle(item.getTitle());
+
             ArrayList <Media> ml_temp = almc.get(item.getTitle().toString());
+
+
             if (ml_temp != null)
                 alm.addAll(ml_temp);
 
@@ -232,8 +236,10 @@ public class MainActivity extends AppCompatActivity
             String category = m.getCategory();
 
             // Each category has specific media sources
-            if (!almc.containsKey(category))
-                almc.put(category, new ArrayList<>());
+            if (!almc.containsKey(category)) {
+                String toShow = String.valueOf(category.charAt(0)).toUpperCase() + category.substring(1, category.length());
+                almc.put(toShow, new ArrayList<>());
+            }
 
             ArrayList<Media> temp = almc.get(category);
             if (temp != null)
@@ -252,33 +258,33 @@ public class MainActivity extends AppCompatActivity
 
             // Set appropriate colors to each category
             SpannableString ss = new SpannableString(s);
-            if (s.equals("business"))
+            if (s.equals("Business"))
             {
                 ss.setSpan(new ForegroundColorSpan(Color.GREEN), 0, len, 0);
             }
-            else if (s.equals("entertainment"))
+            else if (s.equals("Entertainment"))
             {
-                ss.setSpan(new ForegroundColorSpan(Color.RED), 0, len, 0);
+                ss.setSpan(new ForegroundColorSpan(Color.rgb(250, 113, 7)), 0, len, 0);
             }
-            else if (s.equals("general"))
+            else if (s.equals("General"))
             {
-                ss.setSpan(new ForegroundColorSpan(Color.LTGRAY), 0, len, 0);
+                ss.setSpan(new ForegroundColorSpan(Color.rgb(155, 158, 157)), 0, len, 0);
             }
-            else if (s.equals("health"))
+            else if (s.equals("Health"))
             {
-                ss.setSpan(new ForegroundColorSpan(Color.BLACK), 0, len, 0);
+                ss.setSpan(new ForegroundColorSpan(Color.rgb(250, 5, 5)), 0, len, 0);
             }
-            else if (s.equals("science"))
+            else if (s.equals("Science"))
             {
                 ss.setSpan(new ForegroundColorSpan(Color.CYAN), 0, len, 0);
             }
-            else if (s.equals("sports"))
+            else if (s.equals("Sports"))
             {
                 ss.setSpan(new ForegroundColorSpan(Color.MAGENTA), 0, len, 0);
             }
-            else if (s.equals("technology"))
+            else if (s.equals("Technology"))
             {
-                ss.setSpan(new ForegroundColorSpan(Color.BLUE), 0, len, 0);
+                ss.setSpan(new ForegroundColorSpan(Color.rgb(98, 168, 252)), 0, len, 0);
             }
             menu.add(ss);
         }
@@ -293,7 +299,9 @@ public class MainActivity extends AppCompatActivity
         for (int i = 0; i < numItems; i++)
         {
             items[i] = ((Media) toUpdate.get(i)).getName();
-            categories[i] = ((Media) toUpdate.get(i)).getCategory();
+            String toShow = ((Media) toUpdate.get(i)).getCategory();
+            toShow = String.valueOf(toShow.charAt(0)).toUpperCase() + toShow.substring(1, toShow.length());
+            categories[i] = toShow;
         }
 
         // Drawer customization
