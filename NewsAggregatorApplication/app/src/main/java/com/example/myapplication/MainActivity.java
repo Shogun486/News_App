@@ -23,7 +23,6 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity
 {
-
     private final String TAG = "MainActivity", appTitle = "News App";
     private String [] items, categories;
     private String mediaName, format, show = "";
